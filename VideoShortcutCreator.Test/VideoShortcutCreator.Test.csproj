@@ -55,8 +55,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test\VideoShortcutCreator.Api.csproj">
-      <Project>{b36653bd-e9da-44f7-86a6-5e77aad5cc95}</Project>
+    <ProjectReference Include="..\VideoShortcutCreator.Api\VideoShortcutCreator.Api.csproj">
+      <Project>{B36653BD-E9DA-44F7-86A6-5E77AAD5CC95}</Project>
       <Name>VideoShortcutCreator.Api</Name>
     </ProjectReference>
   </ItemGroup>

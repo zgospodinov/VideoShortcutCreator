@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test\VideoShortcutCreator.Api.csproj">
+    <ProjectReference Include="..\VideoShortcutCreator.Api\VideoShortcutCreator.Api.csproj">
       <Project>{b36653bd-e9da-44f7-86a6-5e77aad5cc95}</Project>
       <Name>VideoShortcutCreator.Api</Name>
     </ProjectReference>

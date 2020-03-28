@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideShortcutCreator.Client", "VideShortcutCreator.Api\VideShortcutCreator.Client.csproj", "{F298B325-5FB4-4ACC-A9FD-E08933A98503}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoShortcutCreator.Test", "VideoShortcutCreator.Test\VideoShortcutCreator.Test.csproj", "{0F6151C1-98CE-4CDB-A15A-82A9FDEAB670}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoShortcutCreator.Api", "Test\VideoShortcutCreator.Api.csproj", "{B36653BD-E9DA-44F7-86A6-5E77AAD5CC95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoShortcutCreator.Api", "VideoShortcutCreator.Api\VideoShortcutCreator.Api.csproj", "{B36653BD-E9DA-44F7-86A6-5E77AAD5CC95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideShortcutCreator.Client", "VideShortcutCreator.ConsoleClient\VideShortcutCreator.Client.csproj", "{F298B325-5FB4-4ACC-A9FD-E08933A98503}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F6151C1-98CE-4CDB-A15A-82A9FDEAB670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F6151C1-98CE-4CDB-A15A-82A9FDEAB670}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F6151C1-98CE-4CDB-A15A-82A9FDEAB670}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{B36653BD-E9DA-44F7-86A6-5E77AAD5CC95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B36653BD-E9DA-44F7-86A6-5E77AAD5CC95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B36653BD-E9DA-44F7-86A6-5E77AAD5CC95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
