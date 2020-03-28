@@ -50,6 +50,7 @@
     <Compile Include="FileExtractorTests.cs" />
     <Compile Include="FileValidationsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShortcutsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -17,8 +17,6 @@ namespace VideShortcutCreator.Api
 
             var folderInfo = new DirectoryInfo(rootDirectory);
 
-            //AnalyseDirectory(folderInfo);
-
             CreateShortcuts(folderInfo);
 
             Console.ReadKey();
@@ -31,20 +29,24 @@ namespace VideShortcutCreator.Api
 
         public static void CreateShortcuts(DirectoryInfo directory)
         {
-
             var movies = FileExtractor.GetAllContent(directory.FullName).GetMovies();
-            Console.WriteLine(movies.Count);
+
+            Console.WriteLine("Shortcuts will be created for:");
             Console.WriteLine();
             movies.ForEach(f =>
             {
                 Console.WriteLine(f.Name);
             });
 
-
-            for (int i = 0; i < movies.Count; i++)
+            var options = new ShortcutOptions()
             {
-                Shortcuts.Create($"my shortcut {i}", Environment.GetFolderPath(Environment.SpecialFolder.Desktop), movies[i].FullName);
-            }
+                Destination = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                IsSeries = true,
+                UseRealName = false,
+                Name = "The Mandalorian"
+            };
+
+            movies.Process(options);
         }
 
 
