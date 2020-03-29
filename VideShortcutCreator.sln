@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoShortcutCreator.Api", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideShortcutCreator.Client", "VideShortcutCreator.ConsoleClient\VideShortcutCreator.Client.csproj", "{F298B325-5FB4-4ACC-A9FD-E08933A98503}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoShortcutCreator.Ui", "VideoShortcutCreator.Ui\VideoShortcutCreator.Ui.csproj", "{6DDEF8C3-AB28-4AA3-B3CE-FD5091765A56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F298B325-5FB4-4ACC-A9FD-E08933A98503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DDEF8C3-AB28-4AA3-B3CE-FD5091765A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DDEF8C3-AB28-4AA3-B3CE-FD5091765A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DDEF8C3-AB28-4AA3-B3CE-FD5091765A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DDEF8C3-AB28-4AA3-B3CE-FD5091765A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

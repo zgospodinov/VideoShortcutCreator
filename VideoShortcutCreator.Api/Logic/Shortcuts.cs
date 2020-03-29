@@ -1,9 +1,7 @@
 ﻿using IWshRuntimeLibrary;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -11,23 +9,26 @@ namespace Test.Logic
 {
     public static class Shortcuts
     {
-        public static void Process(this List<FileInfo> movies, ShortcutOptions options)
+        public async static Task Process(this List<FileInfo> movies, ShortcutOptions options)
         {
-            if (movies.Any())
+            await Task.Run(() =>
             {
-                for (int i = 0; i < movies.Count; i++)
+                if (movies.Any())
                 {
-                    var movie = movies[i];
-                    var name = options.UseRealName ? movie.Name : options.Name;
-
-                    if (options.IsSeries)
+                    for (int i = 0; i < movies.Count; i++)
                     {
-                        name = movie.GetSeriesSeasonNumber(i) + $" {name}";
-                    }
+                        var movie = movies[i];
+                        var name = options.UseRealName ? movie.Name : options.Name;
 
-                    Create(name, options.Destination, movie.FullName);
+                        if (options.IsSeries)
+                        {
+                            name = movie.GetSeriesSeasonNumber(i) + $" {name}";
+                        }
+
+                        Create(name, options.Destination, movie.FullName);
+                    }
                 }
-            }
+            });
         }
 
         public static string GetSeriesSeasonNumber(this FileInfo movie, int index)
