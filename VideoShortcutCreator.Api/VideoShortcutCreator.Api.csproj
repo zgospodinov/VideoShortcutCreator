@@ -31,8 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,10 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\VideoFormats.cs" />
+    <Compile Include="Logic\FileExtensions.cs" />
     <Compile Include="Logic\FileExtractor.cs" />
     <Compile Include="Logic\FileValidations.cs" />
     <Compile Include="Logic\ShortcutOptions.cs" />
     <Compile Include="Logic\Shortcuts.cs" />
+    <Compile Include="Logic\Subtitles\MovieSubtitle.cs" />
+    <Compile Include="Logic\Subtitles\MovieSubtitlesCore.cs" />
+    <Compile Include="Logic\Subtitles\SubtitleLanguage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +67,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logic\Movies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

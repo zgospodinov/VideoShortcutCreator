@@ -1,9 +1,21 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using OpenScraping;
+using OpenScraping.Config;
+using ScrapySharp.Extensions;
+using ScrapySharp.Html.Dom;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Reflection;
+using System.Text;
+using System.Web;
 using Test.Logic;
+using Test.Logic.Subtitles;
 using VideoShortcutCreator.Api.Logic;
 
 namespace VideShortcutCreator.Api
@@ -12,15 +24,47 @@ namespace VideShortcutCreator.Api
     {
         static void Main(string[] args)
         {
+            #region Shortcuts
             // Test directory
-            string rootDirectory = @"D:\movies\Shortcuts testing";
+            //string rootDirectory = @"D:\movies\Shortcuts testing";
 
-            var folderInfo = new DirectoryInfo(rootDirectory);
+            //var folderInfo = new DirectoryInfo(rootDirectory);
 
-            CreateShortcuts(folderInfo);
+            //CreateShortcuts(folderInfo); 
+            #endregion
+
+            #region Subtitles
+            //var movieTitle = "Bloodshot.2020.HDRip.XviD.AC3-EVO";
+            //var movieTitle2 = "The.Mandalorian.S01E01.WEBRip.x264-ION10";
+
+            var destination = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            MovieSubtitlesCore subtitlesProvider = new MovieSubtitlesCore();
+
+            var testDestination = @"D:\movies\Bloodshot.2020.HDRip.XviD.AC3-EVO";
+
+            var movies = FileExtractor.GetAllContent(testDestination).GetMovies();
+            //subtitlesProvider.DownloadSubtitles(movies.First().Name, SubtitleLanguage.bul, movies.First().DirectoryName);
+
+            var subtitles = FileExtractor.GetAllContent(testDestination).GetSubtitles();
+
+            if (movies.First().IdenticalNames(subtitles.First()))
+            {
+                Console.WriteLine("No need to rename ");
+            }
+            
+            
+            
+
+            //subtitles.First().Rename(Path.ChangeExtension(movies.First().FullName, subtitles.First().Extension));
+            //Console.WriteLine(movies.First().FullName);
+            //Console.WriteLine(subtitles.First().FullName);
+
+            #endregion
 
             Console.ReadKey();
         }
+
+        
 
         public static string Indent(int count, string text)
         {
@@ -48,7 +92,6 @@ namespace VideShortcutCreator.Api
 
             movies.Process(options);
         }
-
 
         public static void AnalyseDirectory(DirectoryInfo directory)
         {
@@ -82,8 +125,6 @@ namespace VideShortcutCreator.Api
 
             Console.WriteLine($"Collected movie files: {movieFiles.Count}");
         }
-
-
     }
 
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using Test.Logic;
+using Test.Logic.Subtitles;
 
 namespace VideoShortcutCreator.Ui
 {
@@ -36,13 +37,54 @@ namespace VideoShortcutCreator.Ui
 
         private void btnGetMoviePath_Click(object sender, EventArgs e)
         {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = @"C:\";
-            dialog.IsFolderPicker = true;
+            var dialog = CreateDialog();
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 txtBoxMoviesPath.Text = dialog.FileName;
             }
+        }
+
+        private void btnDownloadSubtitles_Click(object sender, EventArgs e)
+        {
+            MovieSubtitlesCore subtitlesProvider = new MovieSubtitlesCore();
+            var movies = FileExtractor.GetAllContent(Properties.Settings.Default.MovieDirectory).GetMovies();
+            subtitlesProvider.DownloadSubtitles(movies, SubtitleLanguage.bul).ContinueWith( r => {
+
+                if (r.Result.Count > 0)
+                {
+                    var message = "Неизтеглени субтитри за:";
+                    foreach (var movieTitle in r.Result)
+                    {
+                        message += Environment.NewLine + movieTitle;
+                    }
+                    MessageBox.Show(message);
+                }
+            });
+        }
+    
+        private void ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dialog = CreateDialog();
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                Properties.Settings.Default.MovieDirectory = dialog.FileName;
+                lblVideoDirectory.Text = dialog.FileName;
+            }
+        }
+
+        private CommonOpenFileDialog CreateDialog()
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            var movieDir = @"D:\movies";
+            dialog.AddPlace(movieDir, Microsoft.WindowsAPICodePack.Shell.FileDialogAddPlaceLocation.Top);
+            dialog.IsFolderPicker = true;
+
+            return dialog;
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            lblVideoDirectory.Text = $"Видео директория: {Properties.Settings.Default.MovieDirectory}";
         }
     }
 }
