@@ -34,5 +34,7 @@ namespace Test.Logic
         {
             return content.Where(c => FileValidations.IsMovieFile(c)).ToList();
         }
+
+        public static IEnumerable<FileInfo> GetSubtitles(this IEnumerable<FileInfo> content) => content.Where(c => c.IsSubtitleFile()).AsEnumerable();
     }
 }

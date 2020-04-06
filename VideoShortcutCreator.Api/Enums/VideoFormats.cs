@@ -21,6 +21,12 @@ namespace VideoShortcutCreator.Api.Enums
         mpeg,
     }
 
+    public enum SubtitleFormats
+    {
+        srt,
+        sub
+    }
+
 
     public static class Enum<T> where T : struct, IConvertible
     {
@@ -29,7 +35,9 @@ namespace VideoShortcutCreator.Api.Enums
             get
             {
                 if (!typeof(T).IsEnum)
+                {
                     throw new ArgumentException("T must be an enumerated type");
+                }
 
                 return Enum.GetNames(typeof(T)).ToList();
             }
